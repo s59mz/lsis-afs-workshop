@@ -83,9 +83,7 @@ python3 compare_code_vectors.py \
 Example:
 
 ```
-python3 compare_code_vectors.py \
-    ../lsis-afs/artifacts/code_vectors \
-    ./code_vectors
+python3 scripts/compare_code_vectors.py ../lsis-afs/artifacts/code_vectors ./code_vectors
 ```
 
 ⸻
@@ -105,9 +103,7 @@ python3 compare_frame_vectors.py \
 Example:
 
 ```
-python3 compare_frame_vectors.py \
-    ../lsis-afs/artifacts/frame_vectors \
-    ./frame_vectors
+python3 scripts/compare_frame_vectors.py ../lsis-afs/artifacts/frame_vectors ./frame_vectors
 ```
 
 ⸻
