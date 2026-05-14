@@ -1,0 +1,94 @@
+LSIS-AFS Reference Implementation
+Gateway-3 Validation Report
+================================
+
+Gateway:
+    Gateway-3: Navigation Message Framing (Message Builder)
+
+Implemented Features
+--------------------
+[OK] Synchronization pattern generator
+[OK] SB1 builder and parser
+[OK] SB2 payload builder and parser
+[OK] SB3 placeholder payload builder
+[OK] SB4 placeholder payload builder
+[OK] Frame assembler
+[OK] Frame parser
+[OK] Frame splitter/deinterleaver
+[OK] Complete FID0 frame generator
+[OK] Complete FID0 frame decoder
+[OK] Binary frame export
+[OK] Parsed JSON export skeleton
+[OK] Time Of Transmission utilities
+
+Frame Structure Validation
+--------------------------
+[OK] Frame structure matches LSIS-AFS Figure 9
+[OK] Symbol count validated:
+        SP(68)
+      + SB1(52)
+      + Interleaved(SB2+SB3+SB4)(5880)
+      = 6000 symbols
+
+[OK] Sync pattern validated
+[OK] SB1 BCH encoding validated
+[OK] SB2/SB3/SB4 LDPC encoding validated
+[OK] Interleaving validated
+[OK] Full frame roundtrip decode passed
+
+Timing Validation
+-----------------
+[OK] WN/ITOW/TOI decomposition implemented
+[OK] ToT reconstruction implemented
+[OK] Frame duration:
+        12 seconds
+
+[OK] Block interval:
+        1200 seconds
+
+[OK] Week rollover handling validated
+
+Cross-Implementation Validation
+-------------------------------
+Reference implementation comparison:
+    Team: LuarSpace
+
+Validation command:
+    python validate.py diff-frames artifacts/frame_vectors
+
+Results:
+    Compared 7/7 frames
+    Bit-exact: 7/7
+
+Result:
+    OK — bit-exact match.
+
+Generated Validation Frames
+---------------------------
+[OK] frame_message_1.bin
+[OK] frame_message_2.bin
+[OK] frame_message_3.bin
+[OK] frame_message_4.bin
+[OK] frame_message_5.bin
+[OK] frame_boundary.bin
+[OK] frame_boundary_max_fields.bin
+
+Generated Code Vectors
+----------------------
+[OK] 210 PRN code vector files exported
+[OK] Cross-implementation comparison:
+        210/210 matched
+
+Pytest Summary
+---------------
+Total pytest tests:
+    1539 passed
+
+Status
+------
+Gateway-3 implementation complete.
+
+Notes
+-----
+SB3/SB4 detailed semantic field layouts remain pending additional
+published LSIS-AFS specification tables.

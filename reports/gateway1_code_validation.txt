@@ -1,0 +1,85 @@
+LSIS-AFS Reference Implementation
+Gateway-1 Validation Report
+================================
+
+Gateway:
+    Gateway-1: Spreading Code Generation
+
+Implemented Features
+--------------------
+[OK] Gold code generator
+[OK] Weil primary code generator
+[OK] Weil tertiary code generator
+[OK] Secondary code generation (S0-S3)
+[OK] Annex3 reference loader
+[OK] Hex export utilities
+[OK] Cross-implementation comparison tools
+[OK] Standardized code vector export
+
+Supported PRNs
+--------------
+[OK] PRN 1-210 fully supported
+
+Validation Results
+------------------
+[OK] Gold PRNs validated:
+        210/210 matched Annex3
+
+[OK] Weil primary PRNs validated:
+        210/210 matched Annex3
+
+[OK] Weil tertiary PRNs validated:
+        210/210 matched Annex3
+
+[OK] Secondary codes validated:
+        S0-S3 matched specification
+
+Cross-Implementation Validation
+-------------------------------
+Reference implementation comparison:
+    Team: LuarSpace
+
+Validation command:
+    python3 validate.py diff ../../lsis-afs/artifacts/code_vectors/
+
+Results:
+    Compared 210/210 PRNs
+    Missing: 0
+
+    GOLD_CODE     : 210/210
+    WEIL_PRIMARY  : 210/210
+    WEIL_TERTIARY : 210/210
+    SECONDARY_S0  : 210/210
+    SECONDARY_S1  : 210/210
+    SECONDARY_S2  : 210/210
+    SECONDARY_S3  : 210/210
+
+Result:
+    OK — bit-exact match.
+
+Generated Artifacts
+-------------------
+[OK] 210 standardized code vector files generated
+[OK] Hex export format implemented
+[OK] Annex3-compatible output format implemented
+[OK] Byte-level comparison tooling implemented
+
+Implementation Notes
+--------------------
+Bit representation:
+    uint8 arrays, MSB-first
+
+Bipolar mapping:
+    0 -> +1
+    1 -> -1
+
+Validation strategy:
+    Bit-exact and byte-exact comparison against Annex3 reference vectors
+
+Architecture:
+    Sparse/test-first implementation with reusable pure-Python primitives
+
+Status
+------
+Gateway-1 implementation complete.
+
